@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Loader SDK Example</title>
+  <script type="module" src="./../src/fontSdk.js"></script>
+  <script type="module">
+    const options = {
+      fonts: [
+        { name: 'Roboto', url: 'https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxP.ttf' },
+        { name: 'Lato', url: 'https://fonts.gstatic.com/s/lato/v20/S6uyw4BMUTPHjx4wXg.woff2' },
+        { name: 'Open Sans', url: 'https://fonts.gstatic.com/s/opensans/v23/memnYaGs126MiZpBA-UFUKWyV9hmIqOjjg.woff2' },
+        { name: 'Montserrat', url: 'https://fonts.gstatic.com/s/montserrat/v10/zhwB3-BAdyKDf0geWr9Ft04GofcKVZz6wtzX_QUIqsI.woff2' },
+        { name: 'PT Sans', url: 'http://fonts.gstatic.com/s/opensans/v10/RjgO7rYTmqiVp7vzi-Q5UT8E0i7KZn-EPnyo3HZu7kw.woff' },
+      ],
+      fallbackFonts: ['sans-serif'],
+      cache: false,
+      preload: true
+    };
+
+    loadFontsSdk(options)
+      .then(() => {
+        console.log('Fuentes cargadas correctamente.');
+      })
+      .catch(error => {
+        console.error('Error al cargar las fuentes:', error);
+      });
+  </script>
+  <style>
+    body {
+      font-family: 'Hackman', sans-serif;
+    }
+
+    h1 {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    p {
+      font-family: 'Lato', sans-serif;
+    }
+
+    small {
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .montserrat {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .pt-sans {
+      font-family: 'PT Sans', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Font Loader SDK Example</h1>
+  <p>Este texto utilizará la fuente "Lato".</p>
+  <small>Este texto utilizará la fuente "Open Sans".</small>
+  <p class="montserrat">Este texto utilizará la fuente "Montserrat".</p>
+  <p class="pt-sans">Este texto utilizará la fuente "PT Sans".</p>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "lapg-font-loader",
+  "version": "1.0.0",
+  "description": "A font loading SDK for custom font management",
+  "main": "dist/fontSdk.min.js",
+  "keywords": [
+    "fonts",
+    "font",
+    "loader",
+    "custom",
+    "lapg"
+  ],
+  "author": "Luis Antonio Padre García  <luis.padre21@gmail.oom>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu_usuario/tu_repositorio.git"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "grunt": "^1.6.1",
+    "grunt-babel": "^8.0.0",
+    "grunt-contrib-uglify-es": "^3.3.0"
+  }
+}
