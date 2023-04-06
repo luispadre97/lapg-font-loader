@@ -1,6 +1,6 @@
 {
   "name": "lapg-font-loader",
-  "version": "1.0.1",
+  "version": "1.0.21",
   "description": "A font loading SDK for custom font management",
   "main": "dist/fontSdk.min.js",
   "keywords": [
@@ -8,13 +8,17 @@
     "font",
     "loader",
     "custom",
-    "lapg"
+    "lapg",
+    "React",
+    "Vue",
+    "HTML",
+    "MintLang"
   ],
   "author": "Luis Antonio Padre García  <luis.padre21@gmail.oom>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tu_usuario/tu_repositorio.git"
+    "url": "https://github.com/luispadre97/lapg-font-loader"
   },
   "devDependencies": {
     "@babel/cli": "^7.21.0",

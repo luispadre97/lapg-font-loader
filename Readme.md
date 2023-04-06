@@ -4,10 +4,10 @@ Para utilizar el FontLoader, sigue los siguientes pasos:
 
 1. Descarga el archivo fontSdk.js: Este archivo contiene la lógica necesaria para cargar y aplicar las fuentes especificadas en tu proyecto.
 
-2. En tu archivo HTML, agrega una etiqueta script que enlace al archivo fontSdk.js:
+2. En tu archivo HTML, agrega una etiqueta script que enlace al archivo fontSdk.min.js:
 
    ```javascript
-   <script src="https://cdn.jsdelivr.net/npm/lapg-font-loader/dist/fontSdk.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/gh/luispadre97/lapg-font-loader@main/dist/fontSdk.min.js"></script>
    ```
 
 3. Define un objeto de opciones con las fuentes que deseas cargar y cualquier otra configuración que desees cambiar. Las opciones son:
@@ -61,7 +61,13 @@ Para utilizar el FontLoader, sigue los siguientes pasos:
 
 ## Uso de FontLoader con Vue
 
-Para usar el SDK con Vue, primero debes importar el archivo `fontSdk.js` en tu componente de Vue. Luego, en el método `mounted()` del componente, llama a la función `loadFonts()` y pásale el objeto de opciones como argumento. Finalmente, en el bloque `style` de tu componente, puedes aplicar las fuentes cargadas utilizando CSS.
+Para usar el FontLoader con React, primero debes instarlo mediante este comando
+
+```
+npm install lapg-font-loader
+```
+
+y llamarlo posteriormente  implementarlo import loadFonts from 'lapg-font-loader' en tu componente de Vue. Luego, en el método `mounted()` del componente, llama a la función `loadFonts()` y pásale el objeto de opciones como argumento. Finalmente, en el bloque `style` de tu componente, puedes aplicar las fuentes cargadas utilizando CSS.
 
 Aquí tienes un ejemplo de cómo se vería el componente Vue:
 
@@ -118,7 +124,14 @@ Aquí tienes un ejemplo de cómo se vería el componente Vue:
 
 ## Uso de FontLoader con React
 
-Para usar el SDK con React, primero debes importar el archivo fontSdk.js en tu componente de React. Luego, dentro del hook useEffect(), llama a la función loadFonts() y pásale el objeto de opciones como argumento. Finalmente, en el archivo CSS, puedes aplicar las fuentes cargadas utilizando CSS.
+Para usar el FontLoader con React, primero debes instarlo mediante este comando
+
+```
+npm install lapg-font-loader
+```
+
+y llamarlo posteriormente  implementarlo import loadFonts from 'lapg-font-loader';
+en tu componente de React. Luego, dentro del hook useEffect(), llama a la función loadFonts() y pásale el objeto de opciones como argumento. Finalmente, en el archivo CSS, puedes aplicar las fuentes cargadas utilizando CSS.
 
 Aquí tienes un ejemplo de cómo se vería el componente de React con Hooks:
 
@@ -173,4 +186,3 @@ small {
   font-family: 'Open Sans', sans-serif;
 }
 ```
-
