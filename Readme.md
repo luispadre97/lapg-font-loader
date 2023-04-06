@@ -1,6 +1,6 @@
-## Uso de FontLoaderSDK
+## Uso de FontLoader
 
-Para utilizar el FontLoaderSDK, sigue los siguientes pasos:
+Para utilizar el FontLoader, sigue los siguientes pasos:
 
 1. Descarga el archivo fontSdk.js: Este archivo contiene la lógica necesaria para cargar y aplicar las fuentes especificadas en tu proyecto.
 
@@ -29,10 +29,10 @@ Para utilizar el FontLoaderSDK, sigue los siguientes pasos:
    };
    ```
 
-4. Llama a la función `loadFontsSdk()` y pasa el objeto de opciones como argumento:
+4. Llama a la función `loadFonts()` y pasa el objeto de opciones como argumento:
 
    ```javascript
-   loadFontsSdk(options)
+   loadFonts(options)
      .then(() => {
        console.log('Fuentes cargadas correctamente.');
      })
@@ -41,7 +41,7 @@ Para utilizar el FontLoaderSDK, sigue los siguientes pasos:
      });
    ```
 
-5. Maneja la promesa devuelta por la función `loadFontsSdk()`. Si las fuentes se cargan correctamente, la promesa se resolverá. De lo contrario, se rechazará y se devolverá un error.
+5. Maneja la promesa devuelta por la función `loadFonts()`. Si las fuentes se cargan correctamente, la promesa se resolverá. De lo contrario, se rechazará y se devolverá un error.
 
 6. Dentro de la promesa resuelta, puedes acceder a las fuentes cargadas y su nombre de familia de fuente a través del objeto de fuente devuelto.
 
@@ -59,9 +59,9 @@ Para utilizar el FontLoaderSDK, sigue los siguientes pasos:
 
 
 
-## Usando el SDK con Vue
+## Uso de FontLoader con Vue
 
-Para usar el SDK con Vue, primero debes importar el archivo `fontSdk.js` en tu componente de Vue. Luego, en el método `mounted()` del componente, llama a la función `loadFontsSdk()` y pásale el objeto de opciones como argumento. Finalmente, en el bloque `style` de tu componente, puedes aplicar las fuentes cargadas utilizando CSS.
+Para usar el SDK con Vue, primero debes importar el archivo `fontSdk.js` en tu componente de Vue. Luego, en el método `mounted()` del componente, llama a la función `loadFonts()` y pásale el objeto de opciones como argumento. Finalmente, en el bloque `style` de tu componente, puedes aplicar las fuentes cargadas utilizando CSS.
 
 Aquí tienes un ejemplo de cómo se vería el componente Vue:
 
@@ -75,7 +75,7 @@ Aquí tienes un ejemplo de cómo se vería el componente Vue:
 </template>
 
 <script>
-  import loadFontsSdk from 'lapg-font-loader';
+  import loadFonts from 'lapg-font-loader';
 
   export default {
     mounted() {
@@ -90,7 +90,7 @@ Aquí tienes un ejemplo de cómo se vería el componente Vue:
         preload: true,
       };
 
-      loadFontsSdk(options)
+      loadFonts(options)
         .then(() => {
           console.log('Fuentes cargadas correctamente.');
         })
@@ -116,15 +116,15 @@ Aquí tienes un ejemplo de cómo se vería el componente Vue:
 
 
 
-## Usando el SDK con React Hooks
+## Uso de FontLoader con React
 
-Para usar el SDK con React Hooks, primero debes importar el archivo fontSdk.js en tu componente de React. Luego, dentro del hook useEffect(), llama a la función loadFontsSdk() y pásale el objeto de opciones como argumento. Finalmente, en el archivo CSS, puedes aplicar las fuentes cargadas utilizando CSS.
+Para usar el SDK con React, primero debes importar el archivo fontSdk.js en tu componente de React. Luego, dentro del hook useEffect(), llama a la función loadFonts() y pásale el objeto de opciones como argumento. Finalmente, en el archivo CSS, puedes aplicar las fuentes cargadas utilizando CSS.
 
 Aquí tienes un ejemplo de cómo se vería el componente de React con Hooks:
 
 ```react
 React, { useEffect } from 'react';
-import loadFontsSdk from 'lapg-font-loader';
+import loadFonts from 'lapg-font-loader';
 
 function App() {
   useEffect(() => {
@@ -139,7 +139,7 @@ function App() {
       preload: true,
     };
 
-    loadFontsSdk(options)
+    loadFonts(options)
       .then(() => {
         console.log('Fuentes cargadas correctamente.');
       })
@@ -173,6 +173,4 @@ small {
   font-family: 'Open Sans', sans-serif;
 }
 ```
-
-
 
