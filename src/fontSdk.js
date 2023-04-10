@@ -1,6 +1,6 @@
 (function (global) {
 
-  function loadFonts(options) {
+  function loadFontsSdk(options) {
     const defaultOptions = {
       fonts: [],
       fallbackFonts: ['sans-serif'],
@@ -74,7 +74,7 @@
     });
   }
 
-  global.loadFonts = loadFonts;
+  global.loadFontsSdk = loadFontsSdk;
 })(window);
 
-export default loadFonts;
+export default loadFontsSdk;

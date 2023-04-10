@@ -72,20 +72,18 @@ y llamarlo posteriormente  implementarlo import loadFonts from 'lapg-font-loader
 Aquí tienes un ejemplo de cómo se vería el componente Vue:
 
 ```vue
-<template>
-  <div>
-    <h1>Este es un título con la fuente "Roboto".</h1>
-    <p>Este es un texto con la fuente "Lato".</p>
-    <small>Este es un texto con la fuente "Open Sans".</small>
-  </div>
-</template>
+<script setup>
+import lapg from 'lapg-theme-manager';
 
-<script>
-  import loadFonts from 'lapg-font-loader';
+import { onMounted } from 'vue';
+import loadFonts from 'lapg-font-loader';
 
-  export default {
-    mounted() {
-      const options = {
+const { ThemeContext, loadThemeFromJSON } = lapg();
+
+
+
+onMounted(() => {
+  const options = {
         fonts: [
           { name: 'Roboto', url: 'https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxP.ttf' },
           { name: 'Lato', url: 'https://fonts.gstatic.com/s/lato/v20/S6uyw4BMUTPHjx4wXg.woff2' },
@@ -103,21 +101,66 @@ Aquí tienes un ejemplo de cómo se vería el componente Vue:
         .catch(error => {
           console.error('Error al cargar las fuentes:', error);
         });
+  
+  loadThemeFromJSON('light', {
+    div: {
+      'background-color': '#FFFFFF',
+      color: '#000000',
     },
-  };
+    button: {
+      'background-color': '#FFFFFF',
+      color: '#000000',
+      border: '1px solid #000000',
+    },
+  });
+  loadThemeFromJSON('dark', {
+    div: {
+      'background-color': '#000000',
+      color: '#FFFFFF',
+    },
+    button: {
+      'background-color': 'red',
+      color: '#FFFFFF',
+      border: '1px solid #FFFFFF',
+    },
+  });
+  ThemeContext.setTheme('light');
+  ThemeContext.updateTheme();
+});
+
+const handleButtonClick = () => {
+  console.log("args")
+  const currentTheme = ThemeContext.currentTheme === 'light' ? 'dark' : 'light';
+  ThemeContext.setTheme(currentTheme);
+};
+
 </script>
 
-<style>
-  h1 {
-    font-family: 'Roboto', sans-serif;
-  }
-  p {
-    font-family: 'Lato', sans-serif;
-  }
-  small {
-    font-family: 'Open Sans', sans-serif;
-  }
+<template>
+  <div data-dynamic-style>
+    <h1>¡Hola mundo!</h1>
+    <p>Este es un ejemplo de cómo cambiar el tema de una página web con LAPG en Vue 3.</p>
+    <button data-dynamic-style @click="handleButtonClick">Cambiar tema</button>
+  </div>
+</template>
+
+<style scoped>
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.vue:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
+}
 </style>
+
 ```
 
 

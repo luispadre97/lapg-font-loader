@@ -1,6 +1,6 @@
 {
   "name": "lapg-font-loader",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "A font loading SDK for custom font management",
   "main": "dist/fontSdk.min.js",
   "keywords": [
@@ -14,7 +14,7 @@
     "HTML",
     "MintLang"
   ],
-  "author": "Luis Antonio Padre García  <luis.padre21@gmail.oom>",
+  "author": "Luis Antonio Padre García  <luis.padre21@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
