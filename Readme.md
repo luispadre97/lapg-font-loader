@@ -19,26 +19,32 @@ Para utilizar el FontLoader, sigue los siguientes pasos:
 
    ```javascript
    const options = {
-     fonts: [
-       { name: 'Open Sans', url: 'https://fonts.googleapis.com/css2?family=Open+Sans&display=swap' },
-       { name: 'Roboto', url: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap' }
-     ],
-     fallbackFonts: ['sans-serif'],
-     cache: false,
-     preload: true
-   };
+   	fonts: [
+   		{
+   			name: "Open Sans",
+   			url: "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap",
+   		},
+   		{
+   			name: "Roboto",
+   			url: "https://fonts.googleapis.com/css2?family=Roboto&display=swap",
+   		},
+   	],
+   	fallbackFonts: ["sans-serif"],
+   	cache: false,
+   	preload: true,
+   }
    ```
 
 4. Llama a la función `loadFonts()` y pasa el objeto de opciones como argumento:
 
    ```javascript
    loadFonts(options)
-     .then(() => {
-       console.log('Fuentes cargadas correctamente.');
-     })
-     .catch(error => {
-       console.error('Error al cargar las fuentes:', error);
-     });
+   	.then(() => {
+   		console.log("Fuentes cargadas correctamente.")
+   	})
+   	.catch((error) => {
+   		console.error("Error al cargar las fuentes:", error)
+   	})
    ```
 
 5. Maneja la promesa devuelta por la función `loadFonts()`. Si las fuentes se cargan correctamente, la promesa se resolverá. De lo contrario, se rechazará y se devolverá un error.
@@ -49,15 +55,13 @@ Para utilizar el FontLoader, sigue los siguientes pasos:
 
    ```scss
    body {
-     font-family: 'Open Sans', sans-serif;
+   	font-family: "Open Sans", sans-serif;
    }
-   
+
    h1 {
-     font-family: 'Roboto', sans-serif;
+   	font-family: "Roboto", sans-serif;
    }
    ```
-
-
 
 ## Uso de FontLoader con Vue
 
@@ -67,103 +71,83 @@ Para usar el FontLoader con React, primero debes instarlo mediante este comando
 npm install lapg-font-loader
 ```
 
-y llamarlo posteriormente  implementarlo import loadFonts from 'lapg-font-loader' en tu componente de Vue. Luego, en el método `mounted()` del componente, llama a la función `loadFonts()` y pásale el objeto de opciones como argumento. Finalmente, en el bloque `style` de tu componente, puedes aplicar las fuentes cargadas utilizando CSS.
+y llamarlo posteriormente implementarlo import loadFonts from 'lapg-font-loader' en tu componente de Vue. Luego, en el método `mounted()` del componente, llama a la función `loadFonts()` y pásale el objeto de opciones como argumento. Finalmente, en el bloque `style` de tu componente, puedes aplicar las fuentes cargadas utilizando CSS.
 
 Aquí tienes un ejemplo de cómo se vería el componente Vue:
 
 ```vue
 <script setup>
-import lapg from 'lapg-theme-manager';
+	import { onMounted } from "vue"
+	import loadFonts from "lapg-font-loader"
 
-import { onMounted } from 'vue';
-import loadFonts from 'lapg-font-loader';
+	const { ThemeContext, loadThemeFromJSON } = lapg()
 
-const { ThemeContext, loadThemeFromJSON } = lapg();
+	onMounted(() => {
+		const options = {
+			fonts: [
+				{
+					name: "Roboto",
+					url: "https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxP.ttf",
+				},
+				{
+					name: "Lato",
+					url: "https://fonts.gstatic.com/s/lato/v20/S6uyw4BMUTPHjx4wXg.woff2",
+				},
+				{
+					name: "Open Sans",
+					url: "https://fonts.gstatic.com/s/opensans/v23/memnYaGs126MiZpBA-UFUKWyV9hmIqOjjg.woff2",
+				},
+			],
+			fallbackFonts: ["sans-serif"],
+			cache: false,
+			preload: true,
+		}
 
+		loadFonts(options)
+			.then(() => {
+				console.log("Fuentes cargadas correctamente.")
+			})
+			.catch((error) => {
+				console.error("Error al cargar las fuentes:", error)
+			})
+	})
 
-
-onMounted(() => {
-  const options = {
-        fonts: [
-          { name: 'Roboto', url: 'https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxP.ttf' },
-          { name: 'Lato', url: 'https://fonts.gstatic.com/s/lato/v20/S6uyw4BMUTPHjx4wXg.woff2' },
-          { name: 'Open Sans', url: 'https://fonts.gstatic.com/s/opensans/v23/memnYaGs126MiZpBA-UFUKWyV9hmIqOjjg.woff2' },
-        ],
-        fallbackFonts: ['sans-serif'],
-        cache: false,
-        preload: true,
-      };
-
-      loadFonts(options)
-        .then(() => {
-          console.log('Fuentes cargadas correctamente.');
-        })
-        .catch(error => {
-          console.error('Error al cargar las fuentes:', error);
-        });
-  
-  loadThemeFromJSON('light', {
-    div: {
-      'background-color': '#FFFFFF',
-      color: '#000000',
-    },
-    button: {
-      'background-color': '#FFFFFF',
-      color: '#000000',
-      border: '1px solid #000000',
-    },
-  });
-  loadThemeFromJSON('dark', {
-    div: {
-      'background-color': '#000000',
-      color: '#FFFFFF',
-    },
-    button: {
-      'background-color': 'red',
-      color: '#FFFFFF',
-      border: '1px solid #FFFFFF',
-    },
-  });
-  ThemeContext.setTheme('light');
-  ThemeContext.updateTheme();
-});
-
-const handleButtonClick = () => {
-  console.log("args")
-  const currentTheme = ThemeContext.currentTheme === 'light' ? 'dark' : 'light';
-  ThemeContext.setTheme(currentTheme);
-};
-
+	const handleButtonClick = () => {
+		console.log("args")
+		const currentTheme =
+			ThemeContext.currentTheme === "light" ? "dark" : "light"
+		ThemeContext.setTheme(currentTheme)
+	}
 </script>
 
 <template>
-  <div data-dynamic-style>
-    <h1>¡Hola mundo!</h1>
-    <p>Este es un ejemplo de cómo cambiar el tema de una página web con LAPG en Vue 3.</p>
-    <button data-dynamic-style @click="handleButtonClick">Cambiar tema</button>
-  </div>
+	<div data-dynamic-style>
+		<h1>¡Hola mundo!</h1>
+		<p>
+			Este es un ejemplo de cómo cambiar el tema de una página web con LAPG en
+			Vue 3.
+		</p>
+		<button data-dynamic-style @click="handleButtonClick">Cambiar tema</button>
+	</div>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
+	.logo {
+		height: 6em;
+		padding: 1.5em;
+		will-change: filter;
+		transition: filter 300ms;
+	}
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
+	.logo:hover {
+		filter: drop-shadow(0 0 2em #646cffaa);
+	}
 
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+	.logo.vue:hover {
+		filter: drop-shadow(0 0 2em #42b883aa);
+	}
 </style>
-
 ```
-
-
 
 ## Uso de FontLoader con React
 
@@ -173,7 +157,7 @@ Para usar el FontLoader con React, primero debes instarlo mediante este comando
 npm install lapg-font-loader
 ```
 
-y llamarlo posteriormente  implementarlo import loadFonts from 'lapg-font-loader';
+y llamarlo posteriormente implementarlo import loadFonts from 'lapg-font-loader';
 en tu componente de React. Luego, dentro del hook useEffect(), llama a la función loadFonts() y pásale el objeto de opciones como argumento. Finalmente, en el archivo CSS, puedes aplicar las fuentes cargadas utilizando CSS.
 
 Aquí tienes un ejemplo de cómo se vería el componente de React con Hooks:
@@ -220,12 +204,12 @@ En el archivo CSS, puedes aplicar las fuentes cargadas utilizando CSS de la sigu
 
 ```css
 h1 {
-  font-family: 'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 }
 p {
-  font-family: 'Lato', sans-serif;
+	font-family: "Lato", sans-serif;
 }
 small {
-  font-family: 'Open Sans', sans-serif;
+	font-family: "Open Sans", sans-serif;
 }
 ```
