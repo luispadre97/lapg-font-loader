@@ -80,8 +80,6 @@ Aquí tienes un ejemplo de cómo se vería el componente Vue:
 	import { onMounted } from "vue"
 	import loadFonts from "lapg-font-loader"
 
-	const { ThemeContext, loadThemeFromJSON } = lapg()
-
 	onMounted(() => {
 		const options = {
 			fonts: [
@@ -111,13 +109,6 @@ Aquí tienes un ejemplo de cómo se vería el componente Vue:
 				console.error("Error al cargar las fuentes:", error)
 			})
 	})
-
-	const handleButtonClick = () => {
-		console.log("args")
-		const currentTheme =
-			ThemeContext.currentTheme === "light" ? "dark" : "light"
-		ThemeContext.setTheme(currentTheme)
-	}
 </script>
 
 <template>
@@ -145,6 +136,15 @@ Aquí tienes un ejemplo de cómo se vería el componente Vue:
 
 	.logo.vue:hover {
 		filter: drop-shadow(0 0 2em #42b883aa);
+	}
+	h1 {
+		font-family: "Roboto", sans-serif;
+	}
+	p {
+		font-family: "Lato", sans-serif;
+	}
+	button {
+		font-family: "Open Sans", sans-serif;
 	}
 </style>
 ```
