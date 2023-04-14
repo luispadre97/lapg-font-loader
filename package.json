@@ -1,6 +1,6 @@
 {
   "name": "lapg-font-loader",
-  "version": "1.0.25up",
+  "version": "1.0.26up",
   "description": "A font loading SDK for custom font management",
   "main": "dist/fontSdk.min.js",
   "keywords": [

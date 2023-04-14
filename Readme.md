@@ -112,13 +112,13 @@ Aquí tienes un ejemplo de cómo se vería el componente Vue:
 </script>
 
 <template>
-	<div data-dynamic-style>
+	<div >
 		<h1>¡Hola mundo!</h1>
 		<p>
 			Este es un ejemplo de cómo cambiar el tema de una página web con LAPG en
 			Vue 3.
 		</p>
-		<button data-dynamic-style @click="handleButtonClick">Cambiar tema</button>
+		<button >Cambiar tema</button>
 	</div>
 </template>
 
